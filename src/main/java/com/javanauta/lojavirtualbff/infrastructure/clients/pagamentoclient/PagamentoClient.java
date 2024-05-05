@@ -10,4 +10,5 @@ public interface PagamentoClient {
 
     @PostMapping("/pagamento")
     Boolean verificaPagamento(@RequestBody CartaoRequestDTO cartaoRequestDTO);
+
 }
