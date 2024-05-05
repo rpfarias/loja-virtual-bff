@@ -1,8 +1,10 @@
 package com.javanauta.lojavirtualbff.api;
 
+import com.javanauta.lojavirtualbff.api.request.CompraRequestDTO;
 import com.javanauta.lojavirtualbff.api.request.UsuarioRequestDTO;
 import com.javanauta.lojavirtualbff.api.response.ProductsDTO;
 import com.javanauta.lojavirtualbff.api.response.UsuarioResponseDTO;
+import com.javanauta.lojavirtualbff.business.LojaVirtualService;
 import com.javanauta.lojavirtualbff.business.ProdutosService;
 import com.javanauta.lojavirtualbff.business.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -24,7 +26,7 @@ public class LojaVirtualController {
 
     private final ProdutosService produtosService;
     private final UsuarioService usuarioService;
-    //private final LojaVirtualService lojaVirtualService;
+    private final LojaVirtualService lojaVirtualService;
 
     @Operation(summary = "Busca todos os produtos", method = "GET")
     @ApiResponses(value = {
@@ -67,7 +69,7 @@ public class LojaVirtualController {
         return ResponseEntity.accepted().build();
     }
 
-    /*@ArraySliceOperation.Operation(summary = "Realiza compra de produto", method = "POST")
+    @Operation(summary = "Realiza compra de produto", method = "POST")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Compra realizado com sucesso"),
             @ApiResponse(responseCode = "500", description = "Erro ao realizar compra"),
@@ -75,5 +77,5 @@ public class LojaVirtualController {
     @PostMapping("/compra")
     public ResponseEntity<String> compraProdutos(@RequestBody CompraRequestDTO compraRequestDTO) {
         return ResponseEntity.ok(lojaVirtualService.realizaCompraProdutos(compraRequestDTO));
-    }*/
+    }
 }
